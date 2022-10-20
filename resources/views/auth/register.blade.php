@@ -1,9 +1,10 @@
 <x-auth-layout>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 
     <!--begin::Signup Form-->
     <form class="form w-100 " novalidate="novalidate" id="kt_sign_up_form" action="{{ theme()->getPageUrl('register') }}">
-    @csrf
-    <!--begin::Heading-->
+        @csrf
+        <!--begin::Heading-->
         <div class="text-center mb-11">
             <!--begin::Title-->
             <h1 class="text-dark fw-bolder mb-3">Sign Up</h1>
@@ -14,7 +15,7 @@
         </div>
         <!--begin::Heading-->
         <!--begin::Login options-->
-        <div class="row g-3 mb-9">
+        {{-- <div class="row g-3 mb-9">
             <!--begin::Col-->
             <div class="col-md-6">
                 <!--begin::Google link=-->
@@ -32,12 +33,12 @@
                 <!--end::Google link=-->
             </div>
             <!--end::Col-->
-        </div>
+        </div> --}}
         <!--end::Login options-->
         <!--begin::Separator-->
-        <div class="separator separator-content my-14">
+        {{-- <div class="separator separator-content my-14">
             <span class="w-125px text-gray-500 fw-semibold fs-7">Or with email</span>
-        </div>
+        </div> --}}
         <!--end::Separator-->
 
 
@@ -45,13 +46,15 @@
         <div class="row fv-row mb-7">
             <!--begin::Col-->
             <div class="col-xl-6">
-                <input class="form-control form-control-lg form-control-solid" type="text" name="first_name" autocomplete="off" value="{{ old('first_name') }}" placeholder="First Name"/>
+                <input class="form-control form-control-lg form-control-solid" type="text" name="first_name"
+                    autocomplete="off" value="{{ old('first_name') }}" placeholder="First Name" />
             </div>
             <!--end::Col-->
 
             <!--begin::Col-->
             <div class="col-xl-6">
-                <input class="form-control form-control-lg form-control-solid" type="text" name="last_name" autocomplete="off" value="{{ old('last_name') }}" placeholder="Last Name"/>
+                <input class="form-control form-control-lg form-control-solid" type="text" name="last_name"
+                    autocomplete="off" value="{{ old('last_name') }}" placeholder="Last Name" />
             </div>
             <!--end::Col-->
         </div>
@@ -61,7 +64,8 @@
         <!--begin::Input group=-->
         <div class="fv-row mb-8 fv-plugins-icon-container fv-plugins-bootstrap5-row-valid">
             <!--begin::Email-->
-            <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent">
+            <input type="text" placeholder="Email" name="email" autocomplete="off"
+                class="form-control bg-transparent">
             <!--end::Email-->
         </div>
         <!--begin::Input group-->
@@ -70,8 +74,10 @@
             <div class="mb-1">
                 <!--begin::Input wrapper-->
                 <div class="position-relative mb-3">
-                    <input class="form-control bg-transparent" type="password" placeholder="Password" name="password" autocomplete="off">
-                    <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
+                    <input class="form-control bg-transparent" type="password" placeholder="Password" name="password"
+                        autocomplete="off">
+                    <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2"
+                        data-kt-password-meter-control="visibility">
                         <i class="bi bi-eye-slash fs-2"></i>
                         <i class="bi bi-eye fs-2 d-none"></i>
                     </span>
@@ -95,10 +101,48 @@
         <!--end::Input group=-->
         <div class="fv-row mb-8 fv-plugins-icon-container">
             <!--begin::Repeat Password-->
-            <input placeholder="Repeat Password" name="password_confirmation" type="password" autocomplete="off" class="form-control bg-transparent">
+            <input placeholder="Repeat Password" name="password_confirmation" type="password" autocomplete="off"
+                class="form-control bg-transparent">
             <!--end::Repeat Password-->
         </div>
         <!--end::Input group=-->
+
+        <!--begin::Input group-->
+        <div class="row fv-row mb-7">
+            <div class="col-xl-4">
+                <input class="form-control form-control-lg form-control-solid" type="text" name="zip1"
+                    placeholder="000" size="4"maxlength="3" />
+            </div>
+            <div class="col-xl-8">
+                <input class="form-control form-control-lg form-control-solid" type="text" name="zip2"
+                    autocomplete="off" placeholder="0000"size="5"
+                    maxlength="4"onKeyUp="AjaxZip3.zip2addr('zip1','zip2','pref','address1','address2');" />
+            </div>
+            <div class="text-muted">Zip Code</div>
+        </div>
+        <div class="row fv-row mb-7">
+            <div class="col-xl-12">
+                <input class="form-control form-control-lg form-control-solid" type="text" name="pref"
+                    size="40" autocomplete="off" />
+            </div>
+            <div class="text-muted">Prefecture</div>
+        </div>
+        <div class="row fv-row mb-7">
+            <div class="col-xl-12">
+                <input class="form-control form-control-lg form-control-solid" type="text" name="address1"
+                    size="40" autocomplete="off" />
+            </div>
+            <div class="text-muted">Address 1</div>
+        </div>
+        <div class="row fv-row mb-7">
+            <div class="col-xl-12">
+                <input class="form-control form-control-lg form-control-solid" type="text" name="address2"
+                    size="40" autocomplete="off" />
+            </div>
+            <div class="text-muted">Address 2</div>
+        </div>
+        <!--end::Input group-->
+
         <!--begin::Accept-->
         <div class="fv-row mb-8 fv-plugins-icon-container">
             <label class="form-check form-check-inline">
@@ -117,10 +161,13 @@
         <!--end::Submit button-->
         <!--begin::Sign up-->
         <div class="text-gray-500 text-center fw-semibold fs-6">Already have an Account?
-            <a href="{{ theme()->getPageUrl('login') }}" class="link-primary fw-semibold">Sign in</a></div>
+            <a href="{{ theme()->getPageUrl('login') }}" class="link-primary fw-semibold">Sign in</a>
+        </div>
         <!--end::Sign up-->
         <div></div>
     </form>
     <!--end::Signup Form-->
+
+
 
 </x-auth-layout>

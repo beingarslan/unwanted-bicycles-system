@@ -16,7 +16,7 @@
                 </div>
                 <!--end::Form-->
                 <!--begin::Footer-->
-                <div class="d-flex flex-center flex-wrap px-5">
+                {{-- <div class="d-flex flex-center flex-wrap px-5">
                     <!--begin::Links-->
                     <div class="d-flex fw-semibold text-primary fs-base">
                         <a href="{{ $theme->getOption("general", "about") }}" class="px-5">{{ __('About') }}</a>
@@ -24,7 +24,7 @@
                         <a href="{{ $theme->getOption('product', 'purchase') }}" class="px-5">{{ __('Purchase') }}</a>
                     </div>
                     <!--end::Links-->
-                </div>
+                </div> --}}
                 <!--end::Footer-->
             </div>
             <!--end::Body-->
@@ -34,7 +34,10 @@
                 <div class="d-flex flex-column flex-center py-15 px-5 px-md-15 w-100">
                     <!--begin::Logo-->
                     <a href="/" class="mb-12">
-                        <img alt="Logo" src="{{ asset(theme()->getMediaUrlPath() . 'logos/custom-1.png') }}" class="h-75px">
+                        {{-- <img alt="Logo" src="{{ asset(theme()->getMediaUrlPath() . 'logos/custom-1.png') }}" class="h-75px"> --}}
+                        <h1 class="text-white">
+                            {{config('app.name')}}
+                        </h1>
                     </a>
                     <!--end::Logo-->
                     <!--begin::Image-->
@@ -44,11 +47,11 @@
                     <h1 class="text-white fs-2qx fw-bolder text-center mb-7">Fast, Efficient and Productive</h1>
                     <!--end::Title-->
                     <!--begin::Text-->
-                    <div class="text-white fs-base text-center">In this kind of post,
+                    {{-- <div class="text-white fs-base text-center">In this kind of post,
                         <a href="#" class="opacity-75-hover text-warning fw-bold me-1">the blogger</a>introduces a person they’ve interviewed
                         <br>and provides some background information about
                         <a href="#" class="opacity-75-hover text-warning fw-bold me-1">the interviewee</a>and their
-                        <br>work following this is a transcript of the interview.</div>
+                        <br>work following this is a transcript of the interview.</div> --}}
                     <!--end::Text-->
                 </div>
                 <!--end::Content-->

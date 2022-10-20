@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Core\Traits\SpatieLogsActivity;
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -82,7 +83,7 @@ class User extends Authenticatable implements MustVerifyEmail
             return asset($this->info->avatar_url);
         }
 
-        return asset(theme()->getMediaUrlPath().'avatars/blank.png');
+        return asset(theme()->getMediaUrlPath() . 'avatars/blank.png');
     }
 
     /**
@@ -93,5 +94,32 @@ class User extends Authenticatable implements MustVerifyEmail
     public function info()
     {
         return $this->hasOne(UserInfo::class);
+    }
+
+    // joined_at
+    public function getJoinedAtAttribute()
+    {
+        return Carbon::parse($this->created_at)->format('Y-m-d H:i');
+    }
+
+    // address
+    public function getAddressAttribute()
+    {
+        if (! $this->zip_code || (! $this->prefecture && ! $this->address1 && ! $this->address2)) {
+            return null;
+        }
+
+        return "{$this->prefecture} {$this->address1}, {$this->address2}, {$this->zip_code}";
+    }
+
+    public function scopeSearch($query, $searchText)
+    {
+        return $query->where('first_name', 'LIKE', "%{$searchText}%")
+            ->orWhere('last_name', 'like', "%{$searchText}%")
+            ->orWhere('email', 'like', "%{$searchText}%")
+            ->orWhere('prefecture', 'like', "%{$searchText}%")
+            ->orWhere('address1', 'like', "%{$searchText}%")
+            ->orWhere('address2', 'like', "%{$searchText}%")
+            ->orWhere('zip_code', 'like', "%{$searchText}%");
     }
 }

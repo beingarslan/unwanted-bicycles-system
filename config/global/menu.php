@@ -205,12 +205,12 @@ return array(
         //// Modules
         array(
             'classes' => array('content' => 'pt-8 pb-2'),
-            'content' => '<span class="menu-section text-muted text-uppercase fs-8 ls-1">Modules</span>',
+            'content' => '<span class="menu-section text-muted text-uppercase fs-8 ls-1">Admin Apps</span>',
         ),
 
         // Account
         array(
-            'title'      => 'Account',
+            'title'      => 'Users',
             'icon'       => array(
                 'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/communication/com006.svg", "svg-icon-2"),
                 'font' => '<i class="bi bi-person fs-2"></i>',
@@ -223,29 +223,29 @@ return array(
                 'class' => 'menu-sub-accordion menu-active-bg',
                 'items' => array(
                     array(
-                        'title'  => 'Overview',
-                        'path'   => 'account/overview',
+                        'title'  => 'List',
+                        'path'   => '/admin/users/',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
-                    array(
-                        'title'  => 'Settings',
-                        'path'   => 'account/settings',
-                        'bullet' => '<span class="bullet bullet-dot"></span>',
-                    ),
-                    array(
-                        'title'      => 'Security',
-                        'path'       => '#',
-                        'bullet'     => '<span class="bullet bullet-dot"></span>',
-                        'attributes' => array(
-                            'link' => array(
-                                "title"             => "Coming soon",
-                                "data-bs-toggle"    => "tooltip",
-                                "data-bs-trigger"   => "hover",
-                                "data-bs-dismiss"   => "click",
-                                "data-bs-placement" => "right",
-                            ),
-                        ),
-                    ),
+                    // array(
+                    //     'title'  => 'Settings',
+                    //     'path'   => 'account/settings',
+                    //     'bullet' => '<span class="bullet bullet-dot"></span>',
+                    // ),
+                    // array(
+                    //     'title'      => 'Security',
+                    //     'path'       => '#',
+                    //     'bullet'     => '<span class="bullet bullet-dot"></span>',
+                    //     'attributes' => array(
+                    //         'link' => array(
+                    //             "title"             => "Coming soon",
+                    //             "data-bs-toggle"    => "tooltip",
+                    //             "data-bs-trigger"   => "hover",
+                    //             "data-bs-dismiss"   => "click",
+                    //             "data-bs-placement" => "right",
+                    //         ),
+                    //     ),
+                    // ),
                 ),
             ),
         ),

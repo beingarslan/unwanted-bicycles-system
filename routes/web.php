@@ -1,13 +1,13 @@
 <?php
 
 use App\Http\Controllers\Account\SettingsController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\SocialiteLoginController;
 use App\Http\Controllers\Documentation\LayoutBuilderController;
 use App\Http\Controllers\Documentation\ReferencesController;
 use App\Http\Controllers\Logs\AuditLogsController;
 use App\Http\Controllers\Logs\SystemLogsController;
 use App\Http\Controllers\PagesController;
-use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,13 +44,6 @@ array_walk($menu, function ($val) {
     }
 });
 
-// Documentations pages
-Route::prefix('documentation')->group(function () {
-    Route::get('getting-started/references', [ReferencesController::class, 'index']);
-    Route::get('getting-started/changelog', [PagesController::class, 'index']);
-    Route::resource('layout-builder', LayoutBuilderController::class)->only(['store']);
-});
-
 Route::middleware('auth')->group(function () {
     // Account pages
     Route::prefix('account')->group(function () {
@@ -67,12 +60,26 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::resource('users', UsersController::class);
-
+Route::group(
+    [
+        'prefix' => 'admin',
+        'as' => 'admin.',
+        'middleware' => ['auth'],
+    ],
+    Route::group(
+        [
+            'prefix' => 'users',
+            'as' => 'users.',
+        ],
+        function () {
+            Route::get('manage', [UserController::class, 'index'])->name('manage');
+        }
+    )
+);
 /**
  * Socialite login using Google service
  * https://laravel.com/docs/8.x/socialite
  */
 Route::get('/auth/redirect/{provider}', [SocialiteLoginController::class, 'redirect']);
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

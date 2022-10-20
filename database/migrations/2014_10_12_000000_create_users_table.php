@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('prefecture')->nullable();
             $table->string('address1')->nullable();
             $table->string('address2')->nullable();
+            $table->boolean('status')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });

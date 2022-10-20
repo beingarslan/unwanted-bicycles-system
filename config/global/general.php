@@ -2,8 +2,8 @@
 return array(
     // Product
     'product' => array(
-        'name'        => 'Metronic',
-        'description' => 'Metronic - Bootstrap 5 HTML, VueJS, React, Angular & Laravel Admin Dashboard Theme',
+        'name'        => env('APP_NAME', 'Laravel'),
+        'description' => env('APP_NAME', 'Laravel'),
         'preview'     => 'https://preview.keenthemes.com/metronic8/laravel',
         'home'        => 'https://keenthemes.com/metronic',
         'purchase'    => 'https://1.envato.market/EA4JP',
@@ -198,20 +198,20 @@ return array(
 
     // Meta
     'meta'    => array(
-        'title'       => 'Metronic - the world\'s #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular & Laravel',
-        'description' => 'The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue & Laravel versions. Grab your copy now and get life-time updates for free.',
-        'keywords'    => 'Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon',
-        'canonical'   => 'https://preview.keenthemes.com/metronic8',
+        'title'       => env('APP_NAME', 'Laravel'),
+        'description' => env('APP_NAME', 'Laravel'),
+        'keywords'    => env('APP_NAME', 'Laravel'),
+        'canonical'   => env('APP_URL', 'http://localhost'),
     ),
 
     // General
     'general' => array(
-        'website'             => 'https://keenthemes.com',
-        'about'               => 'https://keenthemes.com',
-        'contact'             => 'mailto:support@keenthemes.com',
-        'support'             => 'https://keenthemes.com/support',
-        'bootstrap-docs-link' => 'https://getbootstrap.com/docs/5.0',
-        'licenses'            => 'https://keenthemes.com/licensing',
+        'website'             => env('APP_URL', 'http://localhost'),
+        'about'               => 'About Us',
+        'contact'             => 'Contact Us',
+        'support'             =>  'Support',
+        'bootstrap-docs-link' =>  env('APP_URL', 'http://localhost') . '/docs',
+        'licenses'            => 'Licenses',
         'social-accounts'     => array(
             array(
                 'name' => 'Youtube', 'url' => 'https://www.youtube.com/c/KeenThemesTuts/videos', 'logo' => 'svg/social-logos/youtube.svg', "class" => "h-20px",

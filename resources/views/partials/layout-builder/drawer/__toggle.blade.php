@@ -1,5 +1,5 @@
 <!--begin::App settings toggle-->
-<button
+{{-- <button
   	id="kt_app_layout_builder_toggle"
     class="btn btn-dark app-layout-builder-toggle"
     title="{{ theme()->getProductName() }} Builder"
@@ -10,5 +10,5 @@
     data-bs-trigger="hover">
 
 	  <i class="fonticon-equalizer fs-4 me-1"></i> Customize
-</button>
+</button> --}}
 <!--end::App settings toggle-->

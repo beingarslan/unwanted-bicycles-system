@@ -28,11 +28,7 @@
 				data-kt-scroll-offset="5px">
 
 				<!--begin::Form-->
-				<form class="form" method="POST" id="kt_app_layout_builder_form" action="{{ route('layout-builder.store') }}">
-                    @csrf
-                    <input type="hidden" id="kt_app_layout_builder_action" name="layout-builder[action]"/>
-					{{ theme()->getView('partials/layout-builder/drawer/__form') }}
-				</form>
+				
 				<!--end::Form-->
 			</div>
 			<!--end::Content-->

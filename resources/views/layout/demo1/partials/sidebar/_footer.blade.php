@@ -1,6 +1,6 @@
 <!--begin::Footer-->
 <div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6" id="kt_app_sidebar_footer">
-	<a href="{{ theme()->getPageUrl('documentation/getting-started/overview') }}" class="btn btn-flex flex-center btn-custom btn-primary overflow-hidden text-nowrap px-0 h-40px w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="200+ in-house components and 3rd-party plugins">
+	{{-- <a href="{{ theme()->getPageUrl('documentation/getting-started/overview') }}" class="btn btn-flex flex-center btn-custom btn-primary overflow-hidden text-nowrap px-0 h-40px w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="200+ in-house components and 3rd-party plugins">
 		<span class="btn-label">Docs &amp; Components</span>
 		<!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->
 		<span class="svg-icon btn-icon svg-icon-2 m-0">
@@ -13,6 +13,6 @@
 			</svg>
 		</span>
 		<!--end::Svg Icon-->
-	</a>
+	</a> --}}
 </div>
 <!--end::Footer-->

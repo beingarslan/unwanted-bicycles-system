@@ -1,8 +1,9 @@
 <x-base-layout>
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap.min.css" integrity="sha512-BMbq2It2D3J17/C7aRklzOODG1IQ3+MHw3ifzBHMBwGO/0yUqYmsStgBjI0z5EYlaDEFnvYV7gNYdD3vFLRKsA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
-    <link href="{{ asset('demo1/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('demo1/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('demo1/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+        {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap.min.css" integrity="sha512-BMbq2It2D3J17/C7aRklzOODG1IQ3+MHw3ifzBHMBwGO/0yUqYmsStgBjI0z5EYlaDEFnvYV7gNYdD3vFLRKsA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
+        <link href="{{ asset('demo1/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet"
+            type="text/css" />
+        <link href="{{ asset('demo1/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('demo1/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 
     <div class="card">
         {{-- <div class="card-header border-0 pt-6">
@@ -621,8 +622,7 @@
                 // "language": {
                 //     "processing": '<div class="loadingio-spinner-reload-lvqyb9tp5ng"><div class="ldio-m3bo9uw3yb"><div><div></div><div></div><div></div></div></div></div>',
                 // },
-                columns: [
-                    {
+                columns: [{
                         data: 'first_name',
                         name: 'first_name'
                     },

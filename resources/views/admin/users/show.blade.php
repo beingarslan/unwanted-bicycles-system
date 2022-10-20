@@ -1,6 +1,10 @@
+@section('styles')
+
+<link href="{{ asset('demo1/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('demo1/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+@endsection
+
 <x-base-layout>
-    <link href="{{ asset('demo1/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('demo1/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 

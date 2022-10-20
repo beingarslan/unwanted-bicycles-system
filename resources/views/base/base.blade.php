@@ -73,7 +73,7 @@ License: {{ theme()->getOption('product', 'license') }}
 
 <body {!! theme()->printHtmlAttributes('body') !!} {!! theme()->printHtmlClasses('body') !!} {!! theme()->printCssVariables('body') !!} data-kt-name="metronic">
 
-    @include('partials/theme-mode/_init')
+@include('partials/theme-mode/_init')
 
     @yield('content')
 

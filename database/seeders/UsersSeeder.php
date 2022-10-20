@@ -20,45 +20,39 @@ class UsersSeeder extends Seeder
         $demoUser = User::create([
             'first_name'        => $faker->firstName,
             'last_name'         => $faker->lastName,
-            'email'             => 'demo@demo.com',
-            'password'          => Hash::make('demo'),
+            'email'             => 'admin@admin.com',
+            'password'          => Hash::make('1234567890'),
             'email_verified_at' => now(),
-            'api_token'         => Hash::make('demo@demo'),
+            'api_token'         => Hash::make('1234567890'),
         ]);
+        $demoUser->assignRole('admin');
+       
+        // $demoUser = User::create([
+        //     'first_name'        => $faker->firstName,
+        //     'last_name'         => $faker->lastName,
+        //     'email'             => 'admin@admin.com',
+        //     'password'          => Hash::make('1234567890'),
+        //     'email_verified_at' => now(),
+        //     'api_token'         => Hash::make('1234567890'),
+        // ]);
+        // $demoUser->assignRole('admin');
 
-        $this->addDummyInfo($faker, $demoUser);
+
 
         $demoUser2 = User::create([
             'first_name'        => $faker->firstName,
             'last_name'         => $faker->lastName,
-            'email'             => 'admin@demo.com',
+            'email'             => 'user@user.com',
             'password'          => Hash::make('demo'),
             'email_verified_at' => now(),
             'api_token'         => Hash::make('admin@demo'),
         ]);
+        $demoUser2->assignRole('user');
 
-        $this->addDummyInfo($faker, $demoUser2);
+
 
         User::factory(100)->create()->each(function (User $user) use ($faker) {
-            $this->addDummyInfo($faker, $user);
+            $user->assignRole('user');
         });
-    }
-
-    private function addDummyInfo(Generator $faker, User $user)
-    {
-        $dummyInfo = [
-            'company'  => $faker->company,
-            'phone'    => $faker->phoneNumber,
-            'website'  => $faker->url,
-            'language' => $faker->languageCode,
-            'country'  => $faker->countryCode,
-        ];
-
-        $info = new UserInfo();
-        foreach ($dummyInfo as $key => $value) {
-            $info->$key = $value;
-        }
-        $info->user()->associate($user);
-        $info->save();
     }
 }

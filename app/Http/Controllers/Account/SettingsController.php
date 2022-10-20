@@ -105,7 +105,7 @@ class SettingsController extends Controller
     public function changeEmail(SettingsEmailRequest $request)
     {
         // prevent change email for demo account
-        if ($request->input('current_email') === 'demo@demo.com') {
+        if ($request->input('current_email') === 'admin@admin') {
             return redirect()->intended('account/settings');
         }
 

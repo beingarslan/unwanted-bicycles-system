@@ -44,13 +44,13 @@
         <!--begin::Input group=-->
         <div class="fv-row mb-8 fv-plugins-icon-container fv-plugins-bootstrap5-row-valid">
             <!--begin::Email-->
-            <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" value="{{ old('email', 'demo@demo.com') }}" required autofocus>
+            <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" value="{{ old('email') }}" required autofocus>
             <!--end::Email-->
         </div>
         <!--end::Input group=-->
         <div class="fv-row mb-3 fv-plugins-icon-container fv-plugins-bootstrap5-row-valid">
             <!--begin::Password-->
-            <input type="password" placeholder="Password" name="password" autocomplete="off" class="form-control bg-transparent" value="demo">
+            <input type="password" placeholder="Password" name="password" autocomplete="off" class="form-control bg-transparent" value="">
             <!--end::Password-->
         </div>
         <!--end::Input group=-->

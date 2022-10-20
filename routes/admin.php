@@ -8,6 +8,7 @@ Route::group(
     [
         'prefix' => 'users',
         'as' => 'users.',
+        'middleware' => ['auth', 'role:admin']
     ],
     function () {
         Route::get('/', [UserController::class, 'index'])->name('index');

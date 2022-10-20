@@ -85,4 +85,12 @@ class UserController extends Controller
             return Response::json(['error' => $e->getMessage()], 500);
         }
     }
+
+    public function show($id){
+        $user = User::where('id', $id)->first();
+        if ($user) {
+            return view('admin.users.show', compact('user'));
+        }
+        abort(404);
+    }
 }

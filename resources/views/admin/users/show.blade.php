@@ -227,56 +227,6 @@
     </div>
     <!--end::Modal-->
 
-    {{-- updateApplicationModal --}}
-    <div class="modal fade" id="updateApplicationModal" tabindex="-1" aria-labelledby="updateApplicationModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="updateApplicationModalLabel">
-                        Update
-                        Application</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="{{ route('admin.applications.update.userinfo') }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="user_id" value="{{ $user->id }}">
-                        <div class="fv-row mb-7">
-                            <label for="status" class="fs-6 fw-bold mb-2">Status</label>
-                            <select class="form-control form-control-solid" name="status_id" id="status">
-                                @foreach ($statuses as $status)
-                                    <option value="{{ $status->id }}"
-                                        {{ $status->id == $user?->userApplicationStatus?->status_id ? 'selected' : '' }}>
-                                        {{ $status->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="fv-row mb-7">
-                            <label for="comment" class="fs-6 fw-bold mb-2">Comment</label>
-                            <textarea class="form-control form-control-solid" name="comment" id="comment" rows="3"></textarea>
-                        </div>
-                        {{-- send email checkbox --}}
-                        <div class="fv-row mb-7">
-                            <label for="send_email" class="fs-6 fw-bold mb-2">Send Email</label>
-                            <input type="checkbox" name="send_email" id="send_email" checked>
-                        </div>
-                        <div class="modal-footer flex-right">
-                            <!--begin::Button-->
-                            <button type="submit" class="btn btn-primary">
-                                <span class="indicator-label">Save Changes</span>
-                                <span class="indicator-progress">Please wait...
-                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                            </button>
-                            <!--end::Button-->
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--end::Modal-->
 
     <script src="{{ asset('demo1/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('demo1/js/scripts.bundle.js') }}"></script>

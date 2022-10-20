@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -86,11 +87,25 @@ class UserController extends Controller
         }
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $user = User::where('id', $id)->first();
         if ($user) {
             return view('admin.users.show', compact('user'));
         }
         abort(404);
+    }
+
+    public function remove(Request $request)
+    {
+        $user = User::where('id', $request->user_id)->first();
+        if ($user) {
+            $user->delete();
+            Alert::success('Success', 'User has been deleted successfully');
+            return redirect()->route('admin.users.index');
+        }
+
+        Alert::error('Error', 'User not found');
+        return redirect()->route('admin.users.index');
     }
 }

@@ -110,8 +110,10 @@ License: {{ theme()->getOption('product', 'license') }}
     @if (theme()->getViewMode() === 'preview')
         {{ theme()->getView('partials/trackers/_ga-tag-manager-for-body') }}
     @endif
+    @include('sweetalert::alert')
 
     @yield('scripts')
+
 </body>
 {{-- end::Body --}}
 

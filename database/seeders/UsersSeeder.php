@@ -43,9 +43,9 @@ class UsersSeeder extends Seeder
             'first_name'        => $faker->firstName,
             'last_name'         => $faker->lastName,
             'email'             => 'user@user.com',
-            'password'          => Hash::make('demo'),
+            'password'          => Hash::make('1234567890'),
             'email_verified_at' => now(),
-            'api_token'         => Hash::make('admin@demo'),
+            'api_token'         => Hash::make('1234567890'),
         ]);
         $demoUser2->assignRole('user');
 

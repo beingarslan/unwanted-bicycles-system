@@ -1,13 +1,14 @@
 <!--begin::Logo-->
 <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
 	<!--begin::Logo image-->
-	<a href="/">
-        @if (setting('layout.layout', 'dark-sidebar') === 'dark-sidebar')
+	<a href="/" class="text-white">
+        {{-- @if (setting('layout.layout', 'dark-sidebar') === 'dark-sidebar')
 		    <img alt="Logo" src="{{ asset(theme()->getMediaUrlPath() . 'logos/default-dark.svg') }}" class="h-25px app-sidebar-logo-default" />
         @else
             <img alt="Logo" src="{{ asset(theme()->getMediaUrlPath() . 'logos/default.svg') }}" class="h-25px app-sidebar-logo-default" />
         @endif
-        <img alt="Logo" src="{{ asset(theme()->getMediaUrlPath() . 'logos/default-small.svg') }}" class="h-20px app-sidebar-logo-minimize" />
+        <img alt="Logo" src="{{ asset(theme()->getMediaUrlPath() . 'logos/default-small.svg') }}" class="h-20px app-sidebar-logo-minimize" /> --}}
+		{{ config('app.name') }}
     </a>
 	<!--end::Logo image-->
 	<!--begin::Sidebar toggle-->

@@ -47,8 +47,8 @@
                     //     "processing": '<div class="loadingio-spinner-reload-lvqyb9tp5ng"><div class="ldio-m3bo9uw3yb"><div><div></div><div></div><div></div></div></div></div>',
                     // },
                     columns: [{
-                            data: 'first_name',
-                            name: 'first_name'
+                            data: 'name',
+                            name: 'name'
                         },
                         {
                             data: 'zip_code',

@@ -173,54 +173,54 @@
                                         <label class="form-label required">Company Name</label>
                                         <input name="company_name"
                                             class="form-control form-control-lg form-control-solid"
-                                            placeholder="Company Name" />
+                                            placeholder="Company Name" id="company_name" type="text">
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Postal Code</label>
                                         <input name="postal_code"
                                             class="form-control form-control-lg form-control-solid"
                                             placeholder="Postal Code" 
-                                            onKeyUp="AjaxZip3.zip2addr('postal_code','','prefecture','county','town');" />
+                                            onKeyUp="AjaxZip3.zip2addr('postal_code','','prefecture','county','town');" id="postal_code" type="text">
                                         <div class="form-text">Half-width numbers without
                                             hyphens</div>
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Prefecture</label>
                                         <input name="prefecture" class="form-control form-control-lg form-control-solid"
-                                            placeholder="Prefecture" />
+                                            placeholder="Prefecture" id="prefecture" type="text">
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">County</label>
                                         <input name="county" class="form-control form-control-lg form-control-solid"
-                                            placeholder="County" />
+                                            placeholder="County" id="county" type="text">
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Town</label>
                                         <input name="town" class="form-control form-control-lg form-control-solid"
-                                            placeholder="Town" />
+                                            placeholder="Town" id="town" type="text">
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Building Name</label>
                                         <input name="building_name"
                                             class="form-control form-control-lg form-control-solid"
-                                            placeholder="Building Name" />
+                                            placeholder="Building Name" id="building_name" type="text">
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Phone</label>
                                         <input name="phone_number" class="form-control form-control-lg form-control-solid"
-                                            placeholder="Phone" />
+                                            placeholder="Phone" id="phone_number" type="text">
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Fax Number</label>
                                         <input name="fax_number"
                                             class="form-control form-control-lg form-control-solid"
-                                            placeholder="Fax Number" />
+                                            placeholder="Fax Number" id="fax_number" type="text">
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Home Page</label>
                                         <input name="home_page"
                                             class="form-control form-control-lg form-control-solid"
-                                            placeholder="Home Page" />
+                                            placeholder="Home Page" id="home_page" type="text">
                                     </div>
                                     <!--end::Input group-->
                                 </div>
@@ -248,24 +248,24 @@
                                         <label class="form-label required">Department/Title</label>
                                         <input name="department"
                                             class="form-control form-control-lg form-control-solid"
-                                            placeholder="Department/Title" />
+                                            placeholder="Department/Title" id="department" type="text">
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Full Name</label>
                                         <input name="full_name"
                                             class="form-control form-control-lg form-control-solid"
-                                            placeholder="Full Name" />
+                                            placeholder="Full Name" id="full_name" type="text">
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Name Furigana</label>
                                         <input name="name_furigana"
                                             class="form-control form-control-lg form-control-solid"
-                                            placeholder="Name Furigana" />
+                                            placeholder="Name Furigana" id="name_furigana" type="text">
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Emergency Contact Phone</label>
                                         <input name="emergency_phone" class="form-control form-control-lg form-control-solid"
-                                            placeholder="Emergency Contact Phone" />
+                                            placeholder="Emergency Contact Phone" id="emergency_phone" type="text">
                                     </div>
                                     <!--end::Input group-->
                                 </div>
@@ -279,12 +279,12 @@
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Email</label>
                                         <input name="email" id="user_email" class="form-control form-control-lg form-control-solid"
-                                            placeholder="Email" />
+                                            placeholder="Email" type="email">
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Password</label>
                                         <input name="password" class="form-control form-control-lg form-control-solid"
-                                            placeholder="Password" />
+                                            placeholder="Password" id="password" type="password">
                                     </div>
                                 </div>
                                 <!--end::Wrapper-->
@@ -820,7 +820,7 @@
                                         <!--end::Title-->
                                         <!--begin::Notice-->
                                         <div class="text-muted fw-semibold fs-6">If you need more info, please
-                                            <a href="../../demo1/dist/authentication/layouts/corporate/sign-in.html"
+                                            <a href="/login"
                                                 class="link-primary fw-bold">Sign In</a>.
                                         </div>
                                         <!--end::Notice-->

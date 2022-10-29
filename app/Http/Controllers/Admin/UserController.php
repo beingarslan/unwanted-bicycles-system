@@ -46,7 +46,7 @@ class UserController extends Controller
             $data = array();
             if (!empty($results)) {
                 foreach ($results as $row) {
-                    $nestedData['first_name'] = view(
+                    $nestedData['name'] = view(
                         'admin.users._table_user_info',
                         [
                             'user' => $row

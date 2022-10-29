@@ -9,6 +9,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Str;
 
@@ -77,22 +79,51 @@ class RegisteredUserController extends Controller
      */
     public function apiStore(Request $request)
     {
-        $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name'  => 'required|string|max:255',
-            'email'      => 'required|string|email|max:255|unique:users',
-            'password'   => ['required', 'confirmed', Rules\Password::defaults()],
+        $validated = Validator::make($request->all(), [
+            'name' => 'required|string|min:3|max:100',
+            'email'      => 'required|string|email|max:100|unique:users',
+            'password'   => 'required|string|min:8|max:100',
+            'company_name' => 'required|string|min:3|max:100',
+            'prefecture' => 'required|string|min:3|max:100',
+            'county' => 'required|string|min:3|max:100',
+            'town' => 'required|string|min:3|max:100',
+            'building_name' => 'required|string|min:3|max:100',
+            'phone_number' => 'required|string|min:3|max:100',
+            'fax_number' => 'required|string|min:3|max:100',
+            'home_page' => 'required|string|min:3|max:100',
+            'department' => 'required|string|min:3|max:100',
+            'name_furigana' => 'required|string|min:3|max:100',
+            'emergency_phone' => 'required|string|min:3|max:100',
         ]);
 
-        $token = Str::random(60);
+        if ($validated->fails()) {
+            return Response::json([
+                'status' => false,
+                'message' => $validated->errors()->first(),
+            ], 400);
+        }
+
         $user = User::create([
-            'first_name' => $request->first_name,
-            'last_name'  => $request->last_name,
+            'name' => $request->name,
             'email'      => $request->email,
             'password'   => Hash::make($request->password),
-            'api_token' => hash('sha256', $token),
+            'company_name' => $request->company_name,
+            'prefecture' => $request->prefecture,
+            'county' => $request->county,
+            'town' => $request->town,
+            'building_name' => $request->building_name,
+            'phone_number' => $request->phone_number,
+            'fax_number' => $request->fax_number,
+            'home_page' => $request->home_page,
+            'department' => $request->department,
+            'name_furigana' => $request->name_furigana,
+            'emergency_phone' => $request->emergency_phone,
+            'api_token' => Hash::make(Str::random(60)),
         ]);
 
-        return response($user);
+        return Response::json([
+            'user' => $user,
+            'success' => true,
+        ], 200);
     }
 }

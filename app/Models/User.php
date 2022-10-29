@@ -77,7 +77,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getNameAttribute()
     {
-        return "{$this->first_name} {$this->last_name}";
+        return $this->attributes['name'];
     }
 
     /**
@@ -113,21 +113,20 @@ class User extends Authenticatable implements MustVerifyEmail
     // address
     public function getAddressAttribute()
     {
-        if (! $this->zip_code || (! $this->prefecture && ! $this->address1 && ! $this->address2)) {
-            return null;
-        }
-
-        return "{$this->prefecture} {$this->address1}, {$this->address2}, {$this->zip_code}";
+        return $this->attributes['postal_code'] . ' ' . $this->attributes['prefecture'] . ' ' . $this->attributes['county'] . ' ' . $this->attributes['town'] . ' ' . $this->attributes['building_name'];
     }
 
     public function scopeSearch($query, $searchText)
     {
-        return $query->where('first_name', 'LIKE', "%{$searchText}%")
-            ->orWhere('last_name', 'like', "%{$searchText}%")
+        return $query->where('name', 'LIKE', "%{$searchText}%")
             ->orWhere('email', 'like', "%{$searchText}%")
             ->orWhere('prefecture', 'like', "%{$searchText}%")
-            ->orWhere('address1', 'like', "%{$searchText}%")
-            ->orWhere('address2', 'like', "%{$searchText}%")
-            ->orWhere('zip_code', 'like', "%{$searchText}%");
+            ->orWhere('company_name', 'like', "%{$searchText}%")
+            ->orWhere('phone_number', 'like', "%{$searchText}%")
+            ->orWhere('fax_number', 'like', "%{$searchText}%")
+            ->orWhere('home_page', 'like', "%{$searchText}%")
+            ->orWhere('department', 'like', "%{$searchText}%")
+            ->orWhere('name_furigana', 'like', "%{$searchText}%")
+            ->orWhere('emergency_phone', 'like', "%{$searchText}%");
     }
 }

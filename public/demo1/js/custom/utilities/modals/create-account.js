@@ -52,9 +52,95 @@ var KTCreateAccount = function () {
           }
         });
       } else if (stepperObj.getCurrentStepIndex() === 5) {
-        
-        formSubmitButton.classList.add('d-none');
-        formContinueButton.classList.add('d-none');
+        var name = document.getElementById('full_name').value;
+        var email = document.getElementById('user_email').value;
+        var password = document.getElementById('password').value;
+        var company_name = document.getElementById('company_name').value;
+        var prefecture = document.getElementById('prefecture').value;
+        var county = document.getElementById('county').value;
+        var town = document.getElementById('town').value;
+        var building_name = document.getElementById('building_name').value;
+        var phone_number = document.getElementById('phone_number').value;
+        var fax_number = document.getElementById('fax_number').value;
+        var home_page = document.getElementById('home_page').value;
+        var department = document.getElementById('department').value;
+        var name_furigana = document.getElementById('name_furigana').value;
+        var emergency_phone = document.getElementById('emergency_phone').value;
+
+        // ajax
+        $.ajax({
+          url: '/api/register',
+          type: 'post',
+          data: {
+            name: name,
+            email: email,
+            password: password,
+            company_name: company_name,
+            prefecture: prefecture,
+            county: county,
+            town: town,
+            building_name: building_name,
+            phone_number: phone_number,
+            fax_number: fax_number,
+            home_page: home_page,
+            department: department,
+            name_furigana: name_furigana,
+            emergency_phone: emergency_phone
+          },
+          success: function success(response) {
+            if (response.success) {
+              Swal.fire({
+                text: "You have successfully registered",
+                icon: "success",
+                buttonsStyling: false,
+                confirmButtonText: "Ok, got it!",
+                customClass: {
+                  confirmButton: "btn font-weight-bold btn-light"
+                }
+              }).then(function () {
+                // go next
+                stepper.goNext();
+                KTUtil.scrollTop();
+                formSubmitButton.classList.add('d-none');
+                formContinueButton.classList.add('d-none');
+              });
+            } else {
+              Swal.fire({
+                text: "Something went wrong",
+                icon: "error",
+                buttonsStyling: false,
+                confirmButtonText: "Ok, got it!",
+                customClass: {
+                  confirmButton: "btn font-weight-bold btn-light"
+                }
+              }).then(function () {
+                // go back
+                stepper.goPrevious();
+                KTUtil.scrollTop();
+              });
+            }
+          },
+          error: function error(response) {
+            Swal.fire({
+              text: "Something went wrong",
+              icon: "error",
+              buttonsStyling: false,
+              confirmButtonText: "Ok, got it!",
+              customClass: {
+                confirmButton: "btn font-weight-bold btn-light"
+              }
+            }).then(function () {
+              // go back
+              stepper.goPrevious();
+              KTUtil.scrollTop();
+            }
+            /*, function () {
+              // go next
+              stepper.goNext();
+              KTUtil.scrollTop();
+            }*/);
+          }
+        });
       } else {
         formSubmitButton.classList.remove('d-inline-block');
         formSubmitButton.classList.remove('d-none');

@@ -60,8 +60,9 @@
                                     <!--end::Icon-->
                                     <!--begin::Label-->
                                     <div class="stepper-label">
-                                        <h3 class="stepper-title fs-2">Account Info</h3>
-                                        <div class="stepper-desc fw-normal">Setup your account settings</div>
+                                        <h3 class="stepper-title fs-2">Applicant Information</h3>
+                                        <div class="stepper-desc fw-normal">Please enter the applicant information.
+                                        </div>
                                     </div>
                                     <!--end::Label-->
                                 </div>
@@ -83,8 +84,8 @@
                                     <!--end::Icon-->
                                     <!--begin::Label-->
                                     <div class="stepper-label">
-                                        <h3 class="stepper-title fs-2">Business Details</h3>
-                                        <div class="stepper-desc fw-normal">Setup your business details</div>
+                                        <h3 class="stepper-title fs-2">Login Details</h3>
+                                        <div class="stepper-desc fw-normal">Setup your login details</div>
                                     </div>
                                     <!--end::Label-->
                                 </div>
@@ -106,8 +107,9 @@
                                     <!--end::Icon-->
                                     <!--begin::Label-->
                                     <div class="stepper-label">
-                                        <h3 class="stepper-title">Billing Details</h3>
-                                        <div class="stepper-desc fw-normal">Provide your payment info</div>
+                                        <h3 class="stepper-title">Terms of Service</h3>
+                                        <div class="stepper-desc fw-normal">Please read and agree to the terms of use
+                                            before purchasing.</div>
                                     </div>
                                     <!--end::Label-->
                                 </div>
@@ -177,26 +179,24 @@
                                         <label class="form-label required">Postal Code</label>
                                         <input name="postal_code"
                                             class="form-control form-control-lg form-control-solid"
-                                            placeholder="Postal Code" />
+                                            placeholder="Postal Code" 
+                                            onKeyUp="AjaxZip3.zip2addr('postal_code','','prefecture','county','town');" />
                                         <div class="form-text">Half-width numbers without
                                             hyphens</div>
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Prefecture</label>
-                                        <input name="prefecture"
-                                            class="form-control form-control-lg form-control-solid"
+                                        <input name="prefecture" class="form-control form-control-lg form-control-solid"
                                             placeholder="Prefecture" />
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">County</label>
-                                        <input name="county"
-                                            class="form-control form-control-lg form-control-solid"
+                                        <input name="county" class="form-control form-control-lg form-control-solid"
                                             placeholder="County" />
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Town</label>
-                                        <input name="town"
-                                            class="form-control form-control-lg form-control-solid"
+                                        <input name="town" class="form-control form-control-lg form-control-solid"
                                             placeholder="Town" />
                                     </div>
                                     <div class="fv-row mb-10">
@@ -207,8 +207,7 @@
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Phone</label>
-                                        <input name="phone"
-                                            class="form-control form-control-lg form-control-solid"
+                                        <input name="phone_number" class="form-control form-control-lg form-control-solid"
                                             placeholder="Phone" />
                                     </div>
                                     <div class="fv-row mb-10">
@@ -233,237 +232,40 @@
                                 <!--begin::Wrapper-->
                                 <div class="w-100">
                                     <!--begin::Heading-->
-                                    <div class="pb-10 pb-lg-15">
+                                    <div class="pb-10 pb-lg-12">
                                         <!--begin::Title-->
-                                        <h2 class="fw-bold text-dark">Account Info</h2>
+                                        <h2 class="fw-bold text-dark">Enter applicant information</h2>
                                         <!--end::Title-->
                                         <!--begin::Notice-->
-                                        <div class="text-muted fw-semibold fs-6">If you need more info, please check
-                                            out
-                                            <a href="#" class="link-primary fw-bold">Help Page</a>.
+                                        <div class="text-muted fw-semibold fs-6">Please enter the applicant
+                                            information.
                                         </div>
                                         <!--end::Notice-->
                                     </div>
                                     <!--end::Heading-->
                                     <!--begin::Input group-->
-                                    <div class="mb-10 fv-row">
-                                        <!--begin::Label-->
-                                        <label class="d-flex align-items-center form-label mb-3">Specify Team Size
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                                title="Provide your team size to help us setup your billing"></i></label>
-                                        <!--end::Label-->
-                                        <!--begin::Row-->
-                                        <div class="row mb-2" data-kt-buttons="true">
-                                            <!--begin::Col-->
-                                            <div class="col">
-                                                <!--begin::Option-->
-                                                <label
-                                                    class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4">
-                                                    <input type="radio" class="btn-check" name="account_team_size"
-                                                        value="1-1" />
-                                                    <span class="fw-bold fs-3">1-1</span>
-                                                </label>
-                                                <!--end::Option-->
-                                            </div>
-                                            <!--end::Col-->
-                                            <!--begin::Col-->
-                                            <div class="col">
-                                                <!--begin::Option-->
-                                                <label
-                                                    class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4 active">
-                                                    <input type="radio" class="btn-check" name="account_team_size"
-                                                        checked="checked" value="2-10" />
-                                                    <span class="fw-bold fs-3">2-10</span>
-                                                </label>
-                                                <!--end::Option-->
-                                            </div>
-                                            <!--end::Col-->
-                                            <!--begin::Col-->
-                                            <div class="col">
-                                                <!--begin::Option-->
-                                                <label
-                                                    class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4">
-                                                    <input type="radio" class="btn-check" name="account_team_size"
-                                                        value="10-50" />
-                                                    <span class="fw-bold fs-3">10-50</span>
-                                                </label>
-                                                <!--end::Option-->
-                                            </div>
-                                            <!--end::Col-->
-                                            <!--begin::Col-->
-                                            <div class="col">
-                                                <!--begin::Option-->
-                                                <label
-                                                    class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4">
-                                                    <input type="radio" class="btn-check" name="account_team_size"
-                                                        value="50+" />
-                                                    <span class="fw-bold fs-3">50+</span>
-                                                </label>
-                                                <!--end::Option-->
-                                            </div>
-                                            <!--end::Col-->
-                                        </div>
-                                        <!--end::Row-->
-                                        <!--begin::Hint-->
-                                        <div class="form-text">Customers will see this shortened version of your
-                                            statement descriptor</div>
-                                        <!--end::Hint-->
+                                    <div class="fv-row mb-10">
+                                        <label class="form-label required">Department/Title</label>
+                                        <input name="department"
+                                            class="form-control form-control-lg form-control-solid"
+                                            placeholder="Department/Title" />
                                     </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="mb-10 fv-row">
-                                        <!--begin::Label-->
-                                        <label class="form-label mb-3">Team Account Name</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input type="text" class="form-control form-control-lg form-control-solid"
-                                            name="account_name" placeholder="" value="" />
-                                        <!--end::Input-->
+                                    <div class="fv-row mb-10">
+                                        <label class="form-label required">Full Name</label>
+                                        <input name="full_name"
+                                            class="form-control form-control-lg form-control-solid"
+                                            placeholder="Full Name" />
                                     </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="mb-0 fv-row">
-                                        <!--begin::Label-->
-                                        <label class="d-flex align-items-center form-label mb-5">Select Account Plan
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                                title="Monthly billing will be based on your account plan"></i></label>
-                                        <!--end::Label-->
-                                        <!--begin::Options-->
-                                        <div class="mb-0">
-                                            <!--begin:Option-->
-                                            <label class="d-flex flex-stack mb-5 cursor-pointer">
-                                                <!--begin:Label-->
-                                                <span class="d-flex align-items-center me-2">
-                                                    <!--begin::Icon-->
-                                                    <span class="symbol symbol-50px me-6">
-                                                        <span class="symbol-label">
-                                                            <!--begin::Svg Icon | path: icons/duotune/finance/fin001.svg-->
-                                                            <span class="svg-icon svg-icon-1 svg-icon-gray-600">
-                                                                <svg width="24" height="24"
-                                                                    viewBox="0 0 24 24" fill="none"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                        d="M20 19.725V18.725C20 18.125 19.6 17.725 19 17.725H5C4.4 17.725 4 18.125 4 18.725V19.725H3C2.4 19.725 2 20.125 2 20.725V21.725H22V20.725C22 20.125 21.6 19.725 21 19.725H20Z"
-                                                                        fill="currentColor" />
-                                                                    <path opacity="0.3"
-                                                                        d="M22 6.725V7.725C22 8.325 21.6 8.725 21 8.725H18C18.6 8.725 19 9.125 19 9.725C19 10.325 18.6 10.725 18 10.725V15.725C18.6 15.725 19 16.125 19 16.725V17.725H15V16.725C15 16.125 15.4 15.725 16 15.725V10.725C15.4 10.725 15 10.325 15 9.725C15 9.125 15.4 8.725 16 8.725H13C13.6 8.725 14 9.125 14 9.725C14 10.325 13.6 10.725 13 10.725V15.725C13.6 15.725 14 16.125 14 16.725V17.725H10V16.725C10 16.125 10.4 15.725 11 15.725V10.725C10.4 10.725 10 10.325 10 9.725C10 9.125 10.4 8.725 11 8.725H8C8.6 8.725 9 9.125 9 9.725C9 10.325 8.6 10.725 8 10.725V15.725C8.6 15.725 9 16.125 9 16.725V17.725H5V16.725C5 16.125 5.4 15.725 6 15.725V10.725C5.4 10.725 5 10.325 5 9.725C5 9.125 5.4 8.725 6 8.725H3C2.4 8.725 2 8.325 2 7.725V6.725L11 2.225C11.6 1.925 12.4 1.925 13.1 2.225L22 6.725ZM12 3.725C11.2 3.725 10.5 4.425 10.5 5.225C10.5 6.025 11.2 6.725 12 6.725C12.8 6.725 13.5 6.025 13.5 5.225C13.5 4.425 12.8 3.725 12 3.725Z"
-                                                                        fill="currentColor" />
-                                                                </svg>
-                                                            </span>
-                                                            <!--end::Svg Icon-->
-                                                        </span>
-                                                    </span>
-                                                    <!--end::Icon-->
-                                                    <!--begin::Description-->
-                                                    <span class="d-flex flex-column">
-                                                        <span
-                                                            class="fw-bold text-gray-800 text-hover-primary fs-5">Company
-                                                            Account</span>
-                                                        <span class="fs-6 fw-semibold text-muted">Use images to enhance
-                                                            your post flow</span>
-                                                    </span>
-                                                    <!--end:Description-->
-                                                </span>
-                                                <!--end:Label-->
-                                                <!--begin:Input-->
-                                                <span class="form-check form-check-custom form-check-solid">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="account_plan" value="1" />
-                                                </span>
-                                                <!--end:Input-->
-                                            </label>
-                                            <!--end::Option-->
-                                            <!--begin:Option-->
-                                            <label class="d-flex flex-stack mb-5 cursor-pointer">
-                                                <!--begin:Label-->
-                                                <span class="d-flex align-items-center me-2">
-                                                    <!--begin::Icon-->
-                                                    <span class="symbol symbol-50px me-6">
-                                                        <span class="symbol-label">
-                                                            <!--begin::Svg Icon | path: icons/duotune/graphs/gra006.svg-->
-                                                            <span class="svg-icon svg-icon-1 svg-icon-gray-600">
-                                                                <svg width="24" height="24"
-                                                                    viewBox="0 0 24 24" fill="none"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                        d="M13 5.91517C15.8 6.41517 18 8.81519 18 11.8152C18 12.5152 17.9 13.2152 17.6 13.9152L20.1 15.3152C20.6 15.6152 21.4 15.4152 21.6 14.8152C21.9 13.9152 22.1 12.9152 22.1 11.8152C22.1 7.01519 18.8 3.11521 14.3 2.01521C13.7 1.91521 13.1 2.31521 13.1 3.01521V5.91517H13Z"
-                                                                        fill="currentColor" />
-                                                                    <path opacity="0.3"
-                                                                        d="M19.1 17.0152C19.7 17.3152 19.8 18.1152 19.3 18.5152C17.5 20.5152 14.9 21.7152 12 21.7152C9.1 21.7152 6.50001 20.5152 4.70001 18.5152C4.30001 18.0152 4.39999 17.3152 4.89999 17.0152L7.39999 15.6152C8.49999 16.9152 10.2 17.8152 12 17.8152C13.8 17.8152 15.5 17.0152 16.6 15.6152L19.1 17.0152ZM6.39999 13.9151C6.19999 13.2151 6 12.5152 6 11.8152C6 8.81517 8.2 6.41515 11 5.91515V3.01519C11 2.41519 10.4 1.91519 9.79999 2.01519C5.29999 3.01519 2 7.01517 2 11.8152C2 12.8152 2.2 13.8152 2.5 14.8152C2.7 15.4152 3.4 15.7152 4 15.3152L6.39999 13.9151Z"
-                                                                        fill="currentColor" />
-                                                                </svg>
-                                                            </span>
-                                                            <!--end::Svg Icon-->
-                                                        </span>
-                                                    </span>
-                                                    <!--end::Icon-->
-                                                    <!--begin::Description-->
-                                                    <span class="d-flex flex-column">
-                                                        <span
-                                                            class="fw-bold text-gray-800 text-hover-primary fs-5">Developer
-                                                            Account</span>
-                                                        <span class="fs-6 fw-semibold text-muted">Use images to your
-                                                            post time</span>
-                                                    </span>
-                                                    <!--end:Description-->
-                                                </span>
-                                                <!--end:Label-->
-                                                <!--begin:Input-->
-                                                <span class="form-check form-check-custom form-check-solid">
-                                                    <input class="form-check-input" type="radio" checked="checked"
-                                                        name="account_plan" value="2" />
-                                                </span>
-                                                <!--end:Input-->
-                                            </label>
-                                            <!--end::Option-->
-                                            <!--begin:Option-->
-                                            <label class="d-flex flex-stack mb-0 cursor-pointer">
-                                                <!--begin:Label-->
-                                                <span class="d-flex align-items-center me-2">
-                                                    <!--begin::Icon-->
-                                                    <span class="symbol symbol-50px me-6">
-                                                        <span class="symbol-label">
-                                                            <!--begin::Svg Icon | path: icons/duotune/graphs/gra008.svg-->
-                                                            <span class="svg-icon svg-icon-1 svg-icon-gray-600">
-                                                                <svg width="24" height="24"
-                                                                    viewBox="0 0 24 24" fill="none"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                        d="M13 10.9128V3.01281C13 2.41281 13.5 1.91281 14.1 2.01281C16.1 2.21281 17.9 3.11284 19.3 4.61284C20.7 6.01284 21.6 7.91285 21.9 9.81285C22 10.4129 21.5 10.9128 20.9 10.9128H13Z"
-                                                                        fill="currentColor" />
-                                                                    <path opacity="0.3"
-                                                                        d="M13 12.9128V20.8129C13 21.4129 13.5 21.9129 14.1 21.8129C16.1 21.6129 17.9 20.7128 19.3 19.2128C20.7 17.8128 21.6 15.9128 21.9 14.0128C22 13.4128 21.5 12.9128 20.9 12.9128H13Z"
-                                                                        fill="currentColor" />
-                                                                    <path opacity="0.3"
-                                                                        d="M11 19.8129C11 20.4129 10.5 20.9129 9.89999 20.8129C5.49999 20.2129 2 16.5128 2 11.9128C2 7.31283 5.39999 3.51281 9.89999 3.01281C10.5 2.91281 11 3.41281 11 4.01281V19.8129Z"
-                                                                        fill="currentColor" />
-                                                                </svg>
-                                                            </span>
-                                                            <!--end::Svg Icon-->
-                                                        </span>
-                                                    </span>
-                                                    <!--end::Icon-->
-                                                    <!--begin::Description-->
-                                                    <span class="d-flex flex-column">
-                                                        <span
-                                                            class="fw-bold text-gray-800 text-hover-primary fs-5">Testing
-                                                            Account</span>
-                                                        <span class="fs-6 fw-semibold text-muted">Use images to enhance
-                                                            time travel rivers</span>
-                                                    </span>
-                                                    <!--end:Description-->
-                                                </span>
-                                                <!--end:Label-->
-                                                <!--begin:Input-->
-                                                <span class="form-check form-check-custom form-check-solid">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="account_plan" value="3" />
-                                                </span>
-                                                <!--end:Input-->
-                                            </label>
-                                            <!--end::Option-->
-                                        </div>
-                                        <!--end::Options-->
+                                    <div class="fv-row mb-10">
+                                        <label class="form-label required">Name Furigana</label>
+                                        <input name="name_furigana"
+                                            class="form-control form-control-lg form-control-solid"
+                                            placeholder="Name Furigana" />
+                                    </div>
+                                    <div class="fv-row mb-10">
+                                        <label class="form-label required">Emergency Contact Phone</label>
+                                        <input name="emergency_phone" class="form-control form-control-lg form-control-solid"
+                                            placeholder="Emergency Contact Phone" />
                                     </div>
                                     <!--end::Input group-->
                                 </div>
@@ -474,95 +276,16 @@
                             <div class="" data-kt-stepper-element="content">
                                 <!--begin::Wrapper-->
                                 <div class="w-100">
-                                    <!--begin::Heading-->
-                                    <div class="pb-10 pb-lg-12">
-                                        <!--begin::Title-->
-                                        <h2 class="fw-bold text-dark">Business Details</h2>
-                                        <!--end::Title-->
-                                        <!--begin::Notice-->
-                                        <div class="text-muted fw-semibold fs-6">If you need more info, please check
-                                            out
-                                            <a href="#" class="link-primary fw-bold">Help Page</a>.
-                                        </div>
-                                        <!--end::Notice-->
-                                    </div>
-                                    <!--end::Heading-->
-                                    <!--begin::Input group-->
                                     <div class="fv-row mb-10">
-                                        <!--begin::Label-->
-                                        <label class="form-label required">Business Name</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input name="business_name"
-                                            class="form-control form-control-lg form-control-solid"
-                                            value="Keenthemes Inc." />
-                                        <!--end::Input-->
+                                        <label class="form-label required">Email</label>
+                                        <input name="email" id="user_email" class="form-control form-control-lg form-control-solid"
+                                            placeholder="Email" />
                                     </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Input group-->
                                     <div class="fv-row mb-10">
-                                        <!--begin::Label-->
-                                        <label class="d-flex align-items-center form-label">
-                                            <span class="required">Shortened Descriptor</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="popover"
-                                                data-bs-trigger="hover" data-bs-html="true"
-                                                data-bs-content="&lt;div class='p-4 rounded bg-light'&gt; &lt;div class='d-flex flex-stack text-muted mb-4'&gt; &lt;i class='fas fa-university fs-3 me-3'&gt;&lt;/i&gt; &lt;div class='fw-bold'&gt;INCBANK **** 1245 STATEMENT&lt;/div&gt; &lt;/div&gt; &lt;div class='d-flex flex-stack fw-semibold text-gray-600'&gt; &lt;div&gt;Amount&lt;/div&gt; &lt;div&gt;Transaction&lt;/div&gt; &lt;/div&gt; &lt;div class='separator separator-dashed my-2'&gt;&lt;/div&gt; &lt;div class='d-flex flex-stack text-dark fw-bold mb-2'&gt; &lt;div&gt;USD345.00&lt;/div&gt; &lt;div&gt;KEENTHEMES*&lt;/div&gt; &lt;/div&gt; &lt;div class='d-flex flex-stack text-muted mb-2'&gt; &lt;div&gt;USD75.00&lt;/div&gt; &lt;div&gt;Hosting fee&lt;/div&gt; &lt;/div&gt; &lt;div class='d-flex flex-stack text-muted'&gt; &lt;div&gt;USD3,950.00&lt;/div&gt; &lt;div&gt;Payrol&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;"></i>
-                                        </label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input name="business_descriptor"
-                                            class="form-control form-control-lg form-control-solid"
-                                            value="KEENTHEMES" />
-                                        <!--end::Input-->
-                                        <!--begin::Hint-->
-                                        <div class="form-text">Customers will see this shortened version of your
-                                            statement descriptor</div>
-                                        <!--end::Hint-->
+                                        <label class="form-label required">Password</label>
+                                        <input name="password" class="form-control form-control-lg form-control-solid"
+                                            placeholder="Password" />
                                     </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="fv-row mb-10">
-                                        <!--begin::Label-->
-                                        <label class="form-label required">Corporation Type</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <select name="business_type"
-                                            class="form-select form-select-lg form-select-solid"
-                                            data-control="select2" data-placeholder="Select..."
-                                            data-allow-clear="true" data-hide-search="true">
-                                            <option></option>
-                                            <option value="1">S Corporation</option>
-                                            <option value="1">C Corporation</option>
-                                            <option value="2">Sole Proprietorship</option>
-                                            <option value="3">Non-profit</option>
-                                            <option value="4">Limited Liability</option>
-                                            <option value="5">General Partnership</option>
-                                        </select>
-                                        <!--end::Input-->
-                                    </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="fv-row mb-10">
-                                        <!--end::Label-->
-                                        <label class="form-label">Business Description</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <textarea name="business_description" class="form-control form-control-lg form-control-solid" rows="3"></textarea>
-                                        <!--end::Input-->
-                                    </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="fv-row mb-0">
-                                        <!--begin::Label-->
-                                        <label class="fs-6 fw-semibold form-label required">Contact Email</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input name="business_email"
-                                            class="form-control form-control-lg form-control-solid"
-                                            value="corp@support.com" />
-                                        <!--end::Input-->
-                                    </div>
-                                    <!--end::Input group-->
                                 </div>
                                 <!--end::Wrapper-->
                             </div>
@@ -571,170 +294,517 @@
                             <div class="" data-kt-stepper-element="content">
                                 <!--begin::Wrapper-->
                                 <div class="w-100">
-                                    <!--begin::Heading-->
-                                    <div class="pb-10 pb-lg-15">
-                                        <!--begin::Title-->
-                                        <h2 class="fw-bold text-dark">Billing Details</h2>
-                                        <!--end::Title-->
-                                        <!--begin::Notice-->
-                                        <div class="text-muted fw-semibold fs-6">If you need more info, please check
-                                            out
-                                            <a href="#" class="text-primary fw-bold">Help Page</a>.
-                                        </div>
-                                        <!--end::Notice-->
+                                    <div>
+
+                                        <h1>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Illegal Bicycle Removal.com
+                                                    Terms of Use</font>
+                                            </font>
+                                        </h1>
+                                        <br>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">These terms of use
+                                                        (hereinafter referred to as the "Terms") apply to the service
+                                                        that Bike Off Corporation (hereinafter referred to as the
+                                                        "Company") accepts removal requests on this website (hereinafter
+                                                        referred to as the "Service "." </font>
+                                                    <font style="vertical-align: inherit;">All registered members
+                                                        (hereinafter referred to as "requesters") shall use this service
+                                                        in accordance with these Terms.</font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <br>
+                                        <h2>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Article 1 (Application)</font>
+                                            </font>
+                                        </h2>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">This agreement shall apply
+                                                        to all relationships related to the use of this service between
+                                                        the client and our company.</font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <br>
+                                        <h2>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Article 2 (Registration for use)
+                                                </font>
+                                            </font>
+                                        </h2>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">The requester applies for
+                                                        usage registration by the method specified by the Company, and
+                                                        the usage registration is completed when the Company approves
+                                                        this. </font>
+                                                    <font style="vertical-align: inherit;">If we determine that the
+                                                        applicant for use registration has any of the following reasons,
+                                                        we may not approve the application for use registration, and we
+                                                        will not be obliged to disclose the reason.</font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(1) When false information is
+                                                    submitted when applying for user registration</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(2) When the application is from
+                                                    a person who has violated these Terms</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(3) If the area for removal or
+                                                    collection is outside our service area</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(4) When the request for removal
+                                                    or collection is closer than the schedule set by the Company</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(5) In addition, when the
+                                                    Company determines that the use registration is not appropriate.
+                                                </font>
+                                            </font>
+                                        </p>
+                                        <br>
+                                        <h2>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Article 3 (Management of member
+                                                    registration ID and password)</font>
+                                            </font>
+                                        </h2>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">The requester shall manage
+                                                        the member ID and password of this service at his/her own
+                                                        responsibility. </font>
+                                                    <font style="vertical-align: inherit;">Under no circumstances shall
+                                                        the requester transfer or lend the member ID and password to a
+                                                        third party. </font>
+                                                    <font style="vertical-align: inherit;">If the combination of the
+                                                        member ID and password matches the registered information and is
+                                                        logged in, the Company will consider it to be used by the member
+                                                        who has registered the member ID.</font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <br>
+                                        <h2>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Article 4 (Usage Fee and Payment
+                                                    Method)</font>
+                                            </font>
+                                        </h2>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">As a consideration for using
+                                                        this service, the requester shall pay the usage fee separately
+                                                        determined by our company and displayed on this website by the
+                                                        method specified by our company. </font>
+                                                    <font style="vertical-align: inherit;">If the client delays payment
+                                                        of the usage fee, the client shall pay late damages at a rate of
+                                                        14.6% per year.
+                                                    </font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <br>
+                                        <h2>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Article 5 (Prohibitions)</font>
+                                            </font>
+                                        </h2>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">In using this service, the
+                                                        requester must not do the following acts.</font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(1) Acts that violate laws or
+                                                    public order and morals</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(2) Acts related to criminal
+                                                    activity</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(3) Actions that destroy or
+                                                    interfere with the functions of our server or network</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(4) Acts that may interfere with
+                                                    the operation of the Company's services</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(5) Acts of collecting or
+                                                    accumulating personal information, etc. regarding property owners
+                                                </font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(6) Acts of pretending to be
+                                                    another client</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(7) Acts that directly or
+                                                    indirectly provide benefits to antisocial forces in relation to our
+                                                    services</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(8) Other acts that the Company
+                                                    deems inappropriate</font>
+                                            </font>
+                                        </p>
+                                        <br>
+                                        <h2>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Article 6 (Contents of this
+                                                    service)</font>
+                                            </font>
+                                        </h2>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">1. </font>
+                                                <font style="vertical-align: inherit;">The requester shall apply for
+                                                    the service of removing and collecting the bicycle/motorcycle within
+                                                    this service.</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">2. </font>
+                                                <font style="vertical-align: inherit;">The service contract shall be
+                                                    concluded at the time when the bicycle/motorbike is collected from
+                                                    the property at the relevant property.</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">3. </font>
+                                                <font style="vertical-align: inherit;">Even if the bicycle to be
+                                                    removed is not found in the requested property, or if the bicycle is
+                                                    not clearly specified, it will be billed as consideration for using
+                                                    this service.</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Four. </font>
+                                                <font style="vertical-align: inherit;">The requester must warn the
+                                                    bicycle/motorcycle for which removal is requested, and announce the
+                                                    removal of the illegally parked bicycle on the bulletin board and in
+                                                    each household.</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Five. </font>
+                                                <font style="vertical-align: inherit;">If the requester asks the agency
+                                                    to notify or warn of illegally parked bicycles or motorcycles, the
+                                                    request shall be made after confirming the completion of the work.
+                                                </font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">6. </font>
+                                                <font style="vertical-align: inherit;">If the owner contacts us to stop
+                                                    collection, we must promptly notify the company, remove the warning
+                                                    tag from the bicycle to be removed, and collect the warning letter.
+                                                </font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">7. </font>
+                                                <font style="vertical-align: inherit;">After the Company collects the
+                                                    said reason, the Company shall not be obligated to exchange a
+                                                    substitute vehicle or issue a refund.</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">8. </font>
+                                                <font style="vertical-align: inherit;">Bicycles and motorcycles will
+                                                    not be accepted or returned after they have been picked up by our
+                                                    company.</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">9. </font>
+                                                <font style="vertical-align: inherit;">The requester shall manage the
+                                                    abandoned bicycle/motorcycle with special care until it is
+                                                    collected.</font>
+                                            </font>
+                                        </p>
+                                        <br>
+                                        <h2>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Article 7 (Suspension of
+                                                    Provision of the Service, etc.)</font>
+                                            </font>
+                                        </h2>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">If the Company determines
+                                                        that any of the following reasons exist, the Company may suspend
+                                                        or suspend the provision of all or part of the Service without
+                                                        prior notice to the Client.</font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(1) When performing maintenance
+                                                    inspections or updating the computer system related to this service
+                                                </font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(2) When it becomes difficult to
+                                                    provide the Service due to force majeure such as an earthquake,
+                                                    lightning strike, fire, power outage, or natural disaster;</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(3) When the computer or
+                                                    communication line, etc. stops due to an accident</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(4) In addition, when the
+                                                    Company determines that it is difficult to provide the Service.
+                                                </font>
+                                            </font>
+                                        </p>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">The Company shall not be
+                                                        liable for any disadvantage or damage suffered by the client or
+                                                        a third party due to suspension or interruption of the provision
+                                                        of this service, regardless of the reason.</font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <br>
+                                        <h2>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Article 8 (Use Restrictions and
+                                                    Cancellation of Registration)</font>
+                                            </font>
+                                        </h2>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">In the following cases, the
+                                                        Company may restrict the use of all or part of the Service or
+                                                        cancel the registration as a requester without prior notice to
+                                                        the requester.</font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(1) Violation of any provision
+                                                    of these Terms;</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(2) When it turns out that there
+                                                    is a false fact in the registered items</font>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">(3) In addition, when the
+                                                    Company determines that the use of this service is not appropriate.
+                                                </font>
+                                            </font>
+                                        </p>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">The Company shall not be
+                                                        liable for any damages incurred by the Client due to the actions
+                                                        taken by the Company under this Article.</font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <br>
+                                        <h2>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Article 9 (Disclaimer)</font>
+                                            </font>
+                                        </h2>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">Our default liability shall
+                                                        be exempted if it is not due to our intention or gross
+                                                        negligence. </font>
+                                                    <font style="vertical-align: inherit;">Even if the Company assumes
+                                                        responsibility for any reason, the Company shall only be liable
+                                                        for compensation within the scope of damages that may normally
+                                                        occur and, in the case of paid services, within the range of the
+                                                        price (equivalent to one car). </font>
+                                                    <font style="vertical-align: inherit;">We are not responsible for
+                                                        any transactions, communications, disputes, etc. that occur
+                                                        between the client and the owner or a third party in relation to
+                                                        this service.</font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <br>
+                                        <h2>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Article 10 (Changes to Service
+                                                    Contents, etc.)</font>
+                                            </font>
+                                        </h2>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">The Company may change the
+                                                        content of the Service or discontinue the provision of the
+                                                        Service without notifying the Client, and shall not be liable
+                                                        for any damages incurred by the Client as a result.</font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <br>
+                                        <h2>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Article 11 (Changes to Terms of
+                                                    Use)</font>
+                                            </font>
+                                        </h2>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">If we deem it necessary, we
+                                                        may change this agreement at any time without notifying the
+                                                        client.</font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <br>
+                                        <h2>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Article 12 (Notice or Contact)
+                                                </font>
+                                            </font>
+                                        </h2>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">Notification or
+                                                        communication between the requester and the Company shall be
+                                                        made by the method specified by the Company.</font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <br>
+                                        <h2>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Article 13 (Prohibition of
+                                                    Transfer of Rights and Obligations)</font>
+                                            </font>
+                                        </h2>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">The Client may not transfer
+                                                        or pledge its status under the Service Agreement or its rights
+                                                        or obligations under these Terms to a third party without the
+                                                        Company's prior written consent.</font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <br>
+                                        <h2>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Article 14 (Governing
+                                                    Law/Jurisdiction)</font>
+                                            </font>
+                                        </h2>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">The law of Japan shall be
+                                                        the governing law for the interpretation of these Terms. </font>
+                                                    <font style="vertical-align: inherit;">In the event of a dispute
+                                                        regarding this service, the court having jurisdiction over the
+                                                        location of our head office shall be the exclusive jurisdiction.
+                                                    </font>
+                                                </font>
+                                            </li>
+                                        </ol>
+                                        <br>
+                                        <p align="right">
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Enforcement: November 01, 2017
+                                                </font>
+                                            </font>
+                                        </p>
+                                        <p align="right">
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Latest revision date: May 31,
+                                                    2019</font>
+                                            </font>
+                                        </p>
+                                        <br>
+                                        <ol>
+                                            <li>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">that's all</font>
+                                                </font>
+                                            </li>
+                                        </ol>
                                     </div>
-                                    <!--end::Heading-->
-                                    <!--begin::Input group-->
-                                    <div class="d-flex flex-column mb-7 fv-row">
-                                        <!--begin::Label-->
-                                        <label class="d-flex align-items-center fs-6 fw-semibold form-label mb-2">
-                                            <span class="required">Name On Card</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                                title="Specify a card holder's name"></i>
-                                        </label>
-                                        <!--end::Label-->
-                                        <input type="text" class="form-control form-control-solid" placeholder=""
-                                            name="card_name" value="Max Doe" />
-                                    </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="d-flex flex-column mb-7 fv-row">
-                                        <!--begin::Label-->
-                                        <label class="required fs-6 fw-semibold form-label mb-2">Card Number</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input wrapper-->
-                                        <div class="position-relative">
-                                            <!--begin::Input-->
-                                            <input type="text" class="form-control form-control-solid"
-                                                placeholder="Enter card number" name="card_number"
-                                                value="4111 1111 1111 1111" />
-                                            <!--end::Input-->
-                                            <!--begin::Card logos-->
-                                            <div class="position-absolute translate-middle-y top-50 end-0 me-5">
-                                                {{-- <img src="assets/media/svg/card-logos/visa.svg" alt=""
-                                                    class="h-25px" />
-                                                <img src="assets/media/svg/card-logos/mastercard.svg" alt=""
-                                                    class="h-25px" />
-                                                <img src="assets/media/svg/card-logos/american-express.svg"
-                                                    alt="" class="h-25px" /> --}}
-                                            </div>
-                                            <!--end::Card logos-->
-                                        </div>
-                                        <!--end::Input wrapper-->
-                                    </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="row mb-10">
-                                        <!--begin::Col-->
-                                        <div class="col-md-8 fv-row">
-                                            <!--begin::Label-->
-                                            <label class="required fs-6 fw-semibold form-label mb-2">Expiration
-                                                Date</label>
-                                            <!--end::Label-->
-                                            <!--begin::Row-->
-                                            <div class="row fv-row">
-                                                <!--begin::Col-->
-                                                <div class="col-6">
-                                                    <select name="card_expiry_month"
-                                                        class="form-select form-select-solid" data-control="select2"
-                                                        data-hide-search="true" data-placeholder="Month">
-                                                        <option></option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                        <option value="11">11</option>
-                                                        <option value="12">12</option>
-                                                    </select>
-                                                </div>
-                                                <!--end::Col-->
-                                                <!--begin::Col-->
-                                                <div class="col-6">
-                                                    <select name="card_expiry_year"
-                                                        class="form-select form-select-solid" data-control="select2"
-                                                        data-hide-search="true" data-placeholder="Year">
-                                                        <option></option>
-                                                        <option value="2022">2022</option>
-                                                        <option value="2023">2023</option>
-                                                        <option value="2024">2024</option>
-                                                        <option value="2025">2025</option>
-                                                        <option value="2026">2026</option>
-                                                        <option value="2027">2027</option>
-                                                        <option value="2028">2028</option>
-                                                        <option value="2029">2029</option>
-                                                        <option value="2030">2030</option>
-                                                        <option value="2031">2031</option>
-                                                        <option value="2032">2032</option>
-                                                    </select>
-                                                </div>
-                                                <!--end::Col-->
-                                            </div>
-                                            <!--end::Row-->
-                                        </div>
-                                        <!--end::Col-->
-                                        <!--begin::Col-->
-                                        <div class="col-md-4 fv-row">
-                                            <!--begin::Label-->
-                                            <label class="d-flex align-items-center fs-6 fw-semibold form-label mb-2">
-                                                <span class="required">CVV</span>
-                                                <i class="fas fa-exclamation-circle ms-2 fs-7"
-                                                    data-bs-toggle="tooltip" title="Enter a card CVV code"></i>
-                                            </label>
-                                            <!--end::Label-->
-                                            <!--begin::Input wrapper-->
-                                            <div class="position-relative">
-                                                <!--begin::Input-->
-                                                <input type="text" class="form-control form-control-solid"
-                                                    minlength="3" maxlength="4" placeholder="CVV"
-                                                    name="card_cvv" />
-                                                <!--end::Input-->
-                                                <!--begin::CVV icon-->
-                                                <div class="position-absolute translate-middle-y top-50 end-0 me-3">
-                                                    <!--begin::Svg Icon | path: icons/duotune/finance/fin002.svg-->
-                                                    <span class="svg-icon svg-icon-2hx">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24"
-                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M22 7H2V11H22V7Z" fill="currentColor" />
-                                                            <path opacity="0.3"
-                                                                d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19ZM14 14C14 13.4 13.6 13 13 13H5C4.4 13 4 13.4 4 14C4 14.6 4.4 15 5 15H13C13.6 15 14 14.6 14 14ZM16 15.5C16 16.3 16.7 17 17.5 17H18.5C19.3 17 20 16.3 20 15.5C20 14.7 19.3 14 18.5 14H17.5C16.7 14 16 14.7 16 15.5Z"
-                                                                fill="currentColor" />
-                                                        </svg>
-                                                    </span>
-                                                    <!--end::Svg Icon-->
-                                                </div>
-                                                <!--end::CVV icon-->
-                                            </div>
-                                            <!--end::Input wrapper-->
-                                        </div>
-                                        <!--end::Col-->
-                                    </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="d-flex flex-stack">
-                                        <!--begin::Label-->
-                                        <div class="me-5">
-                                            <label class="fs-6 fw-semibold form-label">Save Card for further
-                                                billing?</label>
-                                            <div class="fs-7 fw-semibold text-muted">If you need more info, please
-                                                check
-                                                budget planning</div>
-                                        </div>
-                                        <!--end::Label-->
-                                        <!--begin::Switch-->
-                                        <label class="form-check form-switch form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="1"
-                                                checked="checked" />
-                                            <span class="form-check-label fw-semibold text-muted">Save Card</span>
-                                        </label>
-                                        <!--end::Switch-->
-                                    </div>
-                                    <!--end::Input group-->
                                 </div>
                                 <!--end::Wrapper-->
                             </div>

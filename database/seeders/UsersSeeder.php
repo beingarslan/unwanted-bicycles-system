@@ -18,30 +18,16 @@ class UsersSeeder extends Seeder
     public function run(Generator $faker)
     {
         $demoUser = User::create([
-            'first_name'        => $faker->firstName,
-            'last_name'         => $faker->lastName,
+            'name'        => $faker->name(),
             'email'             => 'admin@admin.com',
             'password'          => Hash::make('1234567890'),
             'email_verified_at' => now(),
             'api_token'         => Hash::make('1234567890'),
         ]);
         $demoUser->assignRole('admin');
-       
-        // $demoUser = User::create([
-        //     'first_name'        => $faker->firstName,
-        //     'last_name'         => $faker->lastName,
-        //     'email'             => 'admin@admin.com',
-        //     'password'          => Hash::make('1234567890'),
-        //     'email_verified_at' => now(),
-        //     'api_token'         => Hash::make('1234567890'),
-        // ]);
-        // $demoUser->assignRole('admin');
-
-
 
         $demoUser2 = User::create([
-            'first_name'        => $faker->firstName,
-            'last_name'         => $faker->lastName,
+            'name'        => $faker->name(),
             'email'             => 'user@user.com',
             'password'          => Hash::make('1234567890'),
             'email_verified_at' => now(),
@@ -51,7 +37,7 @@ class UsersSeeder extends Seeder
 
 
 
-        User::factory(100)->create()->each(function (User $user) use ($faker) {
+        User::factory(10)->create()->each(function (User $user) use ($faker) {
             $user->assignRole('user');
         });
     }

@@ -151,11 +151,12 @@ var KTCreateAccount = function () {
 			form,
 			{
 				fields: {
-					account_type: {
+					company_name: {
 						validators: {
 							notEmpty: {
-								message: 'Account type is required'
-							}
+								message: 'Company name is required'
+							},
+
 						}
 					}
 				},

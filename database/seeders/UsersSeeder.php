@@ -35,8 +35,6 @@ class UsersSeeder extends Seeder
         ]);
         $demoUser2->assignRole('user');
 
-
-
         User::factory(10)->create()->each(function (User $user) use ($faker) {
             $user->assignRole('user');
         });

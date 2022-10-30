@@ -9,7 +9,7 @@
             <!--begin::Aside-->
             <div class="d-flex flex-column flex-lg-row-auto w-lg-350px w-xl-500px">
                 <div class="d-flex flex-column position-lg-fixed top-0 bottom-0 w-lg-350px w-xl-500px scroll-y bgi-size-cover bgi-position-center"
-                    style="background-image: url(demo1/media/misc/auth-bg.png)">
+                    style="background-image: url(/demo1/media/misc/auth-bg.png)">
                     <!--begin::Header-->
                     <div class="d-flex flex-center py-10 py-lg-20 mt-lg-20">
                         <!--begin::Logo-->
@@ -179,8 +179,9 @@
                                         <label class="form-label required">Postal Code</label>
                                         <input name="postal_code"
                                             class="form-control form-control-lg form-control-solid"
-                                            placeholder="Postal Code" 
-                                            onKeyUp="AjaxZip3.zip2addr('postal_code','','prefecture','county','town');" id="postal_code" type="text">
+                                            placeholder="Postal Code"
+                                            onKeyUp="AjaxZip3.zip2addr('postal_code','','prefecture','county','town');"
+                                            id="postal_code" type="text">
                                         <div class="form-text">Half-width numbers without
                                             hyphens</div>
                                     </div>
@@ -207,7 +208,8 @@
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Phone</label>
-                                        <input name="phone_number" class="form-control form-control-lg form-control-solid"
+                                        <input name="phone_number"
+                                            class="form-control form-control-lg form-control-solid"
                                             placeholder="Phone" id="phone_number" type="text">
                                     </div>
                                     <div class="fv-row mb-10">
@@ -264,8 +266,10 @@
                                     </div>
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Emergency Contact Phone</label>
-                                        <input name="emergency_phone" class="form-control form-control-lg form-control-solid"
-                                            placeholder="Emergency Contact Phone" id="emergency_phone" type="text">
+                                        <input name="emergency_phone"
+                                            class="form-control form-control-lg form-control-solid"
+                                            placeholder="Emergency Contact Phone" id="emergency_phone"
+                                            type="text">
                                     </div>
                                     <!--end::Input group-->
                                 </div>
@@ -278,14 +282,12 @@
                                 <div class="w-100">
                                     <div class="fv-row mb-10">
                                         <label class="form-label required">Email</label>
-                                        <input name="email" id="user_email" class="form-control form-control-lg form-control-solid"
-                                            placeholder="Email" type="email">
+                                        <input name="email" id="user_email"
+                                            class="form-control form-control-lg form-control-solid"
+                                            placeholder="Email" type="email" value="{{ $user->email }}" readonly>
                                     </div>
-                                    <div class="fv-row mb-10">
-                                        <label class="form-label required">Password</label>
-                                        <input name="password" class="form-control form-control-lg form-control-solid"
-                                            placeholder="Password" id="password" type="password">
-                                    </div>
+
+                                    <input type="hidden" name="api_token" id="api_token" value="{{ $user->api_token }}">
                                 </div>
                                 <!--end::Wrapper-->
                             </div>
@@ -820,8 +822,7 @@
                                         <!--end::Title-->
                                         <!--begin::Notice-->
                                         <div class="text-muted fw-semibold fs-6">If you need more info, please
-                                            <a href="/login"
-                                                class="link-primary fw-bold">Sign In</a>.
+                                            <a href="/login" class="link-primary fw-bold">Sign In</a>.
                                         </div>
                                         <!--end::Notice-->
                                     </div>

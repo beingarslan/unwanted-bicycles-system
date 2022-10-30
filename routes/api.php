@@ -34,3 +34,5 @@ Route::post('/verify_token', [AuthenticatedSessionController::class, 'apiVerifyT
 
 Route::get('/users', [SampleDataController::class, 'getUsers']);
 
+
+

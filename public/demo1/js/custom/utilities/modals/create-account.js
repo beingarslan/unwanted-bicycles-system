@@ -10,6 +10,7 @@ var KTCreateAccount = function () {
   var form;
   var formSubmitButton;
   var formContinueButton;
+  var formPreviousButton;
 
   // Variables
   var stepperObj;
@@ -23,38 +24,13 @@ var KTCreateAccount = function () {
     // Stepper change event
     stepperObj.on('kt.stepper.changed', function (stepper) {
       if (stepperObj.getCurrentStepIndex() === 4) {
-        // validate email
-        var email = document.getElementById('user_email').value;
-        // ajax
-        $.ajax({
-          url: '/verify-unique-email/' + email,
-          type: 'get',
-          success: function success(response) {
-            if (!response.unique) {
-              Swal.fire({
-                text: "Email already exists",
-                icon: "error",
-                buttonsStyling: false,
-                confirmButtonText: "Ok, got it!",
-                customClass: {
-                  confirmButton: "btn font-weight-bold btn-light"
-                }
-              }).then(function () {
-                // go back
-                stepper.goPrevious();
-                KTUtil.scrollTop();
-              });
-            } else {
-              formSubmitButton.classList.remove('d-none');
-              formSubmitButton.classList.add('d-inline-block');
-              formContinueButton.classList.add('d-none');
-            }
-          }
-        });
+        formSubmitButton.classList.remove('d-none');
+        formSubmitButton.classList.add('d-inline-block');
+        formContinueButton.classList.add('d-none');
+
       } else if (stepperObj.getCurrentStepIndex() === 5) {
         var name = document.getElementById('full_name').value;
         var email = document.getElementById('user_email').value;
-        var password = document.getElementById('password').value;
         var company_name = document.getElementById('company_name').value;
         var prefecture = document.getElementById('prefecture').value;
         var county = document.getElementById('county').value;
@@ -66,6 +42,7 @@ var KTCreateAccount = function () {
         var department = document.getElementById('department').value;
         var name_furigana = document.getElementById('name_furigana').value;
         var emergency_phone = document.getElementById('emergency_phone').value;
+        var api_token = document.getElementById('api_token').value;
 
         // ajax
         $.ajax({
@@ -74,7 +51,6 @@ var KTCreateAccount = function () {
           data: {
             name: name,
             email: email,
-            password: password,
             company_name: company_name,
             prefecture: prefecture,
             county: county,
@@ -85,7 +61,8 @@ var KTCreateAccount = function () {
             home_page: home_page,
             department: department,
             name_furigana: name_furigana,
-            emergency_phone: emergency_phone
+            emergency_phone: emergency_phone,
+            api_token: api_token
           },
           success: function success(response) {
             if (response.success) {
@@ -103,6 +80,8 @@ var KTCreateAccount = function () {
                 KTUtil.scrollTop();
                 formSubmitButton.classList.add('d-none');
                 formContinueButton.classList.add('d-none');
+                formPreviousButton.classList.add('d-none');
+
               });
             } else {
               Swal.fire({
@@ -145,6 +124,7 @@ var KTCreateAccount = function () {
         formSubmitButton.classList.remove('d-inline-block');
         formSubmitButton.classList.remove('d-none');
         formContinueButton.classList.remove('d-none');
+
       }
     });
 
@@ -477,26 +457,6 @@ var KTCreateAccount = function () {
               }
             }
           },
-          'password': {
-            validators: {
-              notEmpty: {
-                message: 'Password is required'
-              },
-              stringLength: {
-                min: 8,
-                max: 100,
-                message: 'Password must be more than 8 and less than 100 characters long'
-              },
-              different: {
-                field: 'email',
-                message: 'The password cannot be the same as email'
-              },
-              regexp: {
-                regexp: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$/,
-                message: 'The password must contain at least 1 lowercase, 1 uppercase, 1 number and 1 special character',
-              }
-            }
-          },
         },
         plugins: {
           trigger: new FormValidation.plugins.Trigger(),
@@ -550,6 +510,7 @@ var KTCreateAccount = function () {
       form = stepper.querySelector('#kt_create_account_form');
       formSubmitButton = stepper.querySelector('[data-kt-stepper-action="submit"]');
       formContinueButton = stepper.querySelector('[data-kt-stepper-action="next"]');
+      formPreviousButton = stepper.querySelector('[data-kt-stepper-action="previous"]');
 
       initStepper();
       initValidation();

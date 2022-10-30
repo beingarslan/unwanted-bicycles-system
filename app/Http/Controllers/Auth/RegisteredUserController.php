@@ -23,7 +23,7 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        return view('auth.register-for-application');
     }
 
     /**
@@ -81,8 +81,6 @@ class RegisteredUserController extends Controller
     {
         $validated = Validator::make($request->all(), [
             'name' => 'required|string|min:3|max:100',
-            'email'      => 'required|string|email|max:100|unique:users',
-            'password'   => 'required|string|min:8|max:100',
             'company_name' => 'required|string|min:3|max:100',
             'prefecture' => 'required|string|min:3|max:100',
             'county' => 'required|string|min:3|max:100',
@@ -94,6 +92,7 @@ class RegisteredUserController extends Controller
             'department' => 'required|string|min:3|max:100',
             'name_furigana' => 'required|string|min:3|max:100',
             'emergency_phone' => 'required|string|min:3|max:100',
+            'api_token' => 'required|string|exists:users,api_token',
         ]);
 
         if ($validated->fails()) {
@@ -103,23 +102,23 @@ class RegisteredUserController extends Controller
             ], 400);
         }
 
-        $user = User::create([
-            'name' => $request->name,
-            'email'      => $request->email,
-            'password'   => Hash::make($request->password),
-            'company_name' => $request->company_name,
-            'prefecture' => $request->prefecture,
-            'county' => $request->county,
-            'town' => $request->town,
-            'building_name' => $request->building_name,
-            'phone_number' => $request->phone_number,
-            'fax_number' => $request->fax_number,
-            'home_page' => $request->home_page,
-            'department' => $request->department,
-            'name_furigana' => $request->name_furigana,
-            'emergency_phone' => $request->emergency_phone,
-            'api_token' => Hash::make(Str::random(60)),
-        ]);
+        $user = User::where('api_token', $request->api_token)->first();
+
+        $user->name = $request->name;
+        $user->company_name = $request->company_name;
+        $user->prefecture = $request->prefecture;
+        $user->county = $request->county;
+        $user->town = $request->town;
+        $user->building_name = $request->building_name;
+        $user->phone_number = $request->phone_number;
+        $user->fax_number = $request->fax_number;
+        $user->home_page = $request->home_page;
+        $user->department = $request->department;
+        $user->name_furigana = $request->name_furigana;
+        $user->emergency_phone = $request->emergency_phone;
+        $user->status = true;
+        $user->email_verified_at = now();
+        $user->save();
 
         return Response::json([
             'user' => $user,

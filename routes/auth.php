@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Auth\RegisterApplication;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Models\User;
@@ -68,3 +69,6 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 Route::get('/verify-unique-email/{email}', function ($email) {
     return response()->json(['unique' => !User::where('email', $email)->exists()]);
 })->name('verify-unique-email');
+
+Route::post('/register-for-application', [RegisterApplication::class, 'registerForApplication'])->name('register-for-application');
+Route::get('/register-application/{email}/', [RegisterApplication::class, 'registerApplication'])->name('register-application');

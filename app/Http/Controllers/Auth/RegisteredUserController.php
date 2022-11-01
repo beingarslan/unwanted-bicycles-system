@@ -47,6 +47,7 @@ class RegisteredUserController extends Controller
             'zip2'   => 'required|string|min:4|max:4',
             'address1'   => 'required|string|max:255',
             'address2'   => 'nullable|string|max:255',
+            
         ]);
 
         $user = User::create([
@@ -93,6 +94,7 @@ class RegisteredUserController extends Controller
             'name_furigana' => 'required|string|min:3|max:100',
             'emergency_phone' => 'required|string|min:3|max:100',
             'api_token' => 'required|string|exists:users,api_token',
+            'postal_code' => 'required|string|min:7|max:7',
         ]);
 
         if ($validated->fails()) {
@@ -116,6 +118,7 @@ class RegisteredUserController extends Controller
         $user->department = $request->department;
         $user->name_furigana = $request->name_furigana;
         $user->emergency_phone = $request->emergency_phone;
+        $user->postal_code = $request->postal_code;
         $user->status = true;
         $user->email_verified_at = now();
         $user->save();

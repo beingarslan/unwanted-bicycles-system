@@ -3,8 +3,6 @@
 use App\Http\Controllers\Account\SettingsController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\SocialiteLoginController;
-use App\Http\Controllers\Documentation\LayoutBuilderController;
-use App\Http\Controllers\Documentation\ReferencesController;
 use App\Http\Controllers\Logs\AuditLogsController;
 use App\Http\Controllers\Logs\SystemLogsController;
 use App\Http\Controllers\PagesController;

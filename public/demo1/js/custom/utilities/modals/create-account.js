@@ -41,6 +41,7 @@ var KTCreateAccount = function () {
         var department = document.getElementById('department').value;
         var name_furigana = document.getElementById('name_furigana').value;
         var emergency_phone = document.getElementById('emergency_phone').value;
+        var postal_code = document.getElementById('postal_code').value;
         var api_token = document.getElementById('api_token').value;
 
         // ajax
@@ -61,7 +62,8 @@ var KTCreateAccount = function () {
             department: department,
             name_furigana: name_furigana,
             emergency_phone: emergency_phone,
-            api_token: api_token
+            api_token: api_token,
+            postal_code: postal_code
           },
           success: function success(response) {
             if (response.success) {

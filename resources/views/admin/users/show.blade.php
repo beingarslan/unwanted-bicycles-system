@@ -1,7 +1,6 @@
 @section('styles')
-
-<link href="{{ asset('demo1/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('demo1/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('demo1/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('demo1/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 <x-base-layout>
@@ -165,6 +164,10 @@
                                 <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab"
                                     href="#kt_customer_view_overview_tab">Overview</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
+                                    href="#myRequestsTab">Requests</a>
+                            </li>
                             <!--end:::Tab item-->
                         </ul>
                         <!--end:::Tabs-->
@@ -190,6 +193,102 @@
                                     </div>
                                     <div class="card-body pt-0 pb-5">
                                     </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show " id="myRequestsTab" role="tabpanel">
+                                <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+                                    <!--begin::Card header-->
+                                    <div class="card-header cursor-pointer">
+                                        <!--begin::Card title-->
+                                        <div class="card-title m-0">
+                                            <h3 class="fw-bold m-0"> Details</h3>
+                                        </div>
+                                        <!--end::Card title-->
+                                        <!--begin::Action-->
+                                        {{-- us="btn btn-primary align-self-center">Edit Profile</a> --}}
+                                        <!--end::Action-->
+                                    </div>
+                                    <!--begin::Card header-->
+                                    <!--begin::Card body-->
+                                    <div class="card-body p-9">
+                                        <!--begin::Row-->
+                                        <div class="row mb-7">
+                                            <label class="col-lg-4 fw-semibold text-muted">Company Name</label>
+                                            <div class="col-lg-8">
+                                                <span
+                                                    class="fw-bold fs-6 text-gray-800">{{ $user->company_name }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-7">
+                                            <label class="col-lg-4 fw-semibold text-muted">Postal Code</label>
+                                            <div class="col-lg-8">
+                                                <span
+                                                    class="fw-bold fs-6 text-gray-800">{{ $user->postal_code }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-7">
+                                            <label class="col-lg-4 fw-semibold text-muted">Prefecture</label>
+                                            <div class="col-lg-8">
+                                                <span class="fw-bold fs-6 text-gray-800">{{ $user->prefecture }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-7">
+                                            <label class="col-lg-4 fw-semibold text-muted">County</label>
+                                            <div class="col-lg-8">
+                                                <span class="fw-bold fs-6 text-gray-800">{{ $user->county }}</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label class="col-lg-4 fw-semibold text-muted">Town</label>
+                                            <div class="col-lg-8">
+                                                <span class="fw-bold fs-6 text-gray-800">{{ $user->Town }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-7">
+                                            <label class="col-lg-4 fw-semibold text-muted">Building Name</label>
+                                            <div class="col-lg-8">
+                                                <span class="fw-bold fs-6 text-gray-800">{{ $user->building_name }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-7">
+                                            <label class="col-lg-4 fw-semibold text-muted">Phone Number</label>
+                                            <div class="col-lg-8">
+                                                <span class="fw-bold fs-6 text-gray-800">{{ $user->phone_number }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-7">
+                                            <label class="col-lg-4 fw-semibold text-muted">Fax Number</label>
+                                            <div class="col-lg-8">
+                                                <span class="fw-bold fs-6 text-gray-800">{{ $user->fax_number }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-7">
+                                            <label class="col-lg-4 fw-semibold text-muted">Home Page</label>
+                                            <div class="col-lg-8">
+                                                <span class="fw-bold fs-6 text-gray-800">{{ $user->home_page }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-7">
+                                            <label class="col-lg-4 fw-semibold text-muted">Department</label>
+                                            <div class="col-lg-8">
+                                                <span class="fw-bold fs-6 text-gray-800">{{ $user->department }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-7">
+                                            <label class="col-lg-4 fw-semibold text-muted">Furigana</label>
+                                            <div class="col-lg-8">
+                                                <span class="fw-bold fs-6 text-gray-800">{{ $user->name_furigana }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-7">
+                                            <label class="col-lg-4 fw-semibold text-muted">Emergency Phone</label>
+                                            <div class="col-lg-8">
+                                                <span class="fw-bold fs-6 text-gray-800">{{ $user->emergency_phone }}</span>
+                                            </div>
+                                        </div>
+                                        <!--end::Row-->
+                                    </div>
+                                    <!--end::Card body-->
                                 </div>
                             </div>
                         </div>

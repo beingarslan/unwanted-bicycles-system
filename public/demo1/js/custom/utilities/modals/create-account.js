@@ -27,7 +27,6 @@ var KTCreateAccount = function () {
         formSubmitButton.classList.remove('d-none');
         formSubmitButton.classList.add('d-inline-block');
         formContinueButton.classList.add('d-none');
-
       } else if (stepperObj.getCurrentStepIndex() === 5) {
         var name = document.getElementById('full_name').value;
         var email = document.getElementById('user_email').value;
